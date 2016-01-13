@@ -14,11 +14,22 @@ public class CaesarCipher {
             //Look at the ith character of encrypted (call it currChar)
             char currChar = encrypted.charAt(i);
             //Find the index of currChar in the alphabet (call it idx)
-            int idx = alphabet.indexOf(currChar);
+            int idx;
+            char newChar;
+            if(Character.isLowerCase(currChar)){
+                 idx = alphabet.indexOf(Character.toUpperCase(currChar)); 
+                                
+            }else{
+                 idx = alphabet.indexOf(currChar);}
             //If currChar is in the alphabet
             if(idx != -1){
                 //Get the idxth character of shiftedAlphabet (newChar)
-                char newChar = shiftedAlphabet.charAt(idx);
+              if(Character.isLowerCase(currChar)){
+               newChar = Character.toLowerCase(shiftedAlphabet.charAt(idx));
+                                
+            }else{
+               newChar = shiftedAlphabet.charAt(idx);}  
+               
                 //Replace the ith character of encrypted with newChar
                 encrypted.setCharAt(i, newChar);
             }
@@ -36,5 +47,11 @@ public class CaesarCipher {
         String decrypted = encrypt(encrypted, 26-key);
         System.out.println(decrypted);
     }
+    
+    
+    public void testCaesarLowUpper() {
+        System.out.println(encrypt("First Legion", 17));
+    }
+
 }
 
