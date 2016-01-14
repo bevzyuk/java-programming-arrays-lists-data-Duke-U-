@@ -54,38 +54,31 @@ public class CaesarCipher {
         //Count from 0 to < length of encrypted, (call it i)
         for(int i = 0; i < encrypted.length(); i++) {
             int idx;
-            char newChar;
+            char newChar= (char) 0;
             //Look at the ith character of encrypted (call it currChar)
-         
             char currChar = encrypted.charAt(i);
-            if(Character.isLowerCase(currChar)){
-               idx = alphabet.indexOf(Character.toUpperCase(currChar)); 
-            }else{
-            //Find the index of currChar in the alphabet (call it idx)
-             idx = alphabet.indexOf(currChar);}
+            idx = alphabet.indexOf(Character.toUpperCase(currChar)); 
             //If currChar is in the alphabet
-            if(idx != -1){
-                if(Character.isLowerCase(currChar)){
-                    if(i%2==0){newChar = Character.toLowerCase(shiftedAlphabetKey1.charAt(idx));
+            
+            if(idx != -1 ){
+             //  char newChar;
+                    if(i%2==0){
+                        newChar = Character.toLowerCase(shiftedAlphabetKey1.charAt(idx));
                     }else{
-                        newChar = Character.toLowerCase(shiftedAlphabetKey2.charAt(idx));
+                       newChar = Character.toLowerCase(shiftedAlphabetKey2.charAt(idx));
                     }
-               
-            }else{
-                
-                if(i%2==0){newChar = shiftedAlphabetKey1.charAt(idx);
-                    }else{
-                       newChar = shiftedAlphabetKey1.charAt(idx);
-                    }
+                      
             //Find the index of currChar in the alphabet (call it idx)
-             }
+             }else{
+                newChar = encrypted.charAt(i);
+                }
                 //Get the idxth character of shiftedAlphabet (newChar)
                 
                 //Replace the ith character of encrypted with newChar
                 encrypted.setCharAt(i, newChar);
             }
             //Otherwise: do nothing
-        }
+        
         //Your answer is the String inside of encrypted
         return encrypted.toString();
     }
@@ -108,7 +101,7 @@ public class CaesarCipher {
          String ste ="At noon be in the conference room with your hat on for a surprise party. YELL LOUD!";
          String st = encryptTwoKeys("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!",8, 21);
          System.out.println(st);
-         String decr = encryptTwoKeys(st, 21,5);
+         String decr = encryptTwoKeys(st, 22,5);
         System.out.println(decr);
     }
 
