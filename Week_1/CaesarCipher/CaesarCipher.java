@@ -108,7 +108,7 @@ public class CaesarCipher {
          String ste ="At noon be in the conference room with your hat on for a surprise party. YELL LOUD!";
          String st = encryptTwoKeys("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!",8, 21);
          System.out.println(st);
-         String decr = encryptTwoKeys(st, 22,5);
+         String decr = encryptTwoKeys(st, 21,5);
         System.out.println(decr);
     }
 
