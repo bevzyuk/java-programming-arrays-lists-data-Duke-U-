@@ -22,28 +22,33 @@ public class WordPlay {
 
     
     public String emphasize(String phrase, Character ch) {
-       StringBuilder sb = new StringBuilder();
+       StringBuilder sb = new StringBuilder(phrase);
         for(int i = 0;i< phrase.length();i++){
             //Use additional variable to store char in lowerCase
          //  char ch2 = Character.toLowerCase(phrase.charAt(i));
             if(ch.equals(Character.toLowerCase(phrase.charAt(i))) ){
                 if(i%2 == 0){
-                 sb.append('*');
+                    sb.setCharAt(i,'*');
+                // sb.append('*');
                 }else {
-                 sb.append('+');
+                    sb.setCharAt(i,'+');
+                // sb.append('+');
                 }
-            }else{sb.append(phrase.charAt(i));}
+            }
+            /*else{sb.append(phrase.charAt(i));}*/
         }
       return sb.toString();
     }
 
     
     public String replaceVowels(String phrase, Character ch) {
-         StringBuilder sb = new StringBuilder();
+         StringBuilder sb = new StringBuilder(phrase);
         for(int i = 0;i< phrase.length();i++){             
             if(isVowel(phrase.charAt(i))){
-                sb.append(ch);
-            }else{sb.append(phrase.charAt(i));}
+                sb.setCharAt(i, ch);
+             //   sb.append(ch);
+            }
+            //else{sb.append(phrase.charAt(i));}
         }
         return sb.toString();
     }

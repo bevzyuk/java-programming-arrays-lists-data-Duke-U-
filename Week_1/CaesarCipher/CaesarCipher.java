@@ -101,11 +101,15 @@ public class CaesarCipher {
     }
         
     public void testCaesarLowUpper() {
-        System.out.println(encrypt("First Legion", 17));
+        System.out.println(encrypt("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!", 15));
     }
     
      public void testCaesarTwoKey() {
-        System.out.println(encryptTwoKeys("First Legion",23, 17));
+         String ste ="At noon be in the conference room with your hat on for a surprise party. YELL LOUD!";
+         String st = encryptTwoKeys("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!",8, 21);
+         System.out.println(st);
+         String decr = encryptTwoKeys(st, 22,5);
+        System.out.println(decr);
     }
 
 }
