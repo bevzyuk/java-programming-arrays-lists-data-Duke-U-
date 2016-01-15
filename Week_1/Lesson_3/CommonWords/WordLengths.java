@@ -29,10 +29,22 @@ public class WordLengths {
         }
     }    
         
-        public void testCountWordLengths() {
+    
+    public int indexOfMax(int[] values) {
+       int index = 0;
+       for(int i=0; i< values.length;i++){
+        if (values[i]>index){
+            index=i;
+        }
+        }
+        return index;
+    }
+
+    public void testCountWordLengths() {
         FileResource resource = new FileResource();
         int[] counts = new int[31];
         countWordLengths(resource, counts);
+        System.out.println("Max index: " + indexOfMax(counts));
     }
 
 
