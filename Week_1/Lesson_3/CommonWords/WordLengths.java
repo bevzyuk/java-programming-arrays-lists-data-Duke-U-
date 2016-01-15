@@ -12,7 +12,6 @@ public class WordLengths {
     
     public void countWordLengths(FileResource resource, int[] counts) {
         for(String s: resource.words()){
-            
             int length = s.length();
             if(!Character.isLetter(s.charAt(0))){
                 length -=1;
