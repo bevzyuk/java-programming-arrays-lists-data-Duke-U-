@@ -22,10 +22,10 @@ public class WordLengths {
             }
             counts[length]+=1;
         }
-        int i=0;
-        for(int j : counts){
-            System.out.println("Index " + i + " length: "+ j);
-            i++;
+        
+        for(int i= 0 ; i< counts.length; i++){
+            System.out.println("Index " + i + " length: "+ counts[i]);
+           
         }
     }    
         
