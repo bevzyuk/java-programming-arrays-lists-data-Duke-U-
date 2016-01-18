@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.params=message\ start
+comment0.target=java.lang.String\ halfOfString(java.lang.String,\ int)
+comment0.text=\n\ Devide\ input\ message\ to\ half\ part\n\n\ @param\ \ y\ \ \ a\ sample\ parameter\ for\ a\ method\n\ @return\ \ \ \ \ the\ sum\ of\ x\ and\ y\n
+comment1.params=encrypted
+comment1.target=int[]\ countLetters(java.lang.String)
+comment1.text=\n\ Method\ count\ each\ common\ letter\ \n\ at\ the\ input\ string\ and\ return\ int\ array\n\ where\ each\ letter\ is\ a\ value\ of\ index\n\n\ @param\ st\ \ \ input\ string\ for\ counting\ common\ char\n
+comment2.params=values
+comment2.target=int\ maxIndex(int[])
+comment2.text=\n\ Method\ find\ out\ index\ of\ max\ value\ in\ the\ int\ array\n\ and\ return\ it\n\n\ @param\ \ values\ \ \ input\ int\ array\n\ @return\ index\ of\ max\ value\ in\ the\ array\n
+comment3.params=input
+comment3.target=java.lang.String\ breakCaesarCipher(java.lang.String)
+comment4.params=
+comment4.target=void\ simpleTest()
+numComments=5

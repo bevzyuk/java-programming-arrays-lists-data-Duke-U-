@@ -1,23 +1,15 @@
 import edu.duke.*;
 
 public class CaesarCipher {
-    private String alphabet;
-    private String shiftedAlphabet;
-    private int mainKey;
-    
-    public CaesarCipher(int key){
-        mainKey = key;
-        alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        
-        shiftedAlphabet = alphabet.substring(mainKey)+
-        alphabet.substring(0,mainKey);
-    }
-    
-    public String encrypt(String input) {
+    public String encrypt(String input, int key) {
         //Make a StringBuilder with message (encrypted)
         StringBuilder encrypted = new StringBuilder(input);
         //Write down the alphabet
-              
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        //Compute the shifted alphabet
+        String shiftedAlphabet = alphabet.substring(key)+
+        alphabet.substring(0,key);
+       
         //Count from 0 to < length of encrypted, (call it i)
         for(int i = 0; i < encrypted.length(); i++) {
             int idx;
@@ -48,10 +40,6 @@ public class CaesarCipher {
         return encrypted.toString();
     }
     
-    public String decrypt(String input){
-        CaesarCipher cc = new CaesarCipher(26-mainKey);
-        return cc.encrypt(input);
-    }
     
     public String encryptTwoKeys(String input, int key1, int key2) {
        StringBuilder encrypted = new StringBuilder(input);
@@ -99,14 +87,14 @@ public class CaesarCipher {
         int key = 17;
         FileResource fr = new FileResource();
         String message = fr.asString();
-        String encrypted = encrypt(message);
+        String encrypted = encrypt(message, key);
         System.out.println(encrypted);
-        String decrypted = encrypt(encrypted);
+        String decrypted = encrypt(encrypted, 26-key);
         System.out.println(decrypted);
     }
         
     public void testCaesarLowUpper() {
-        System.out.println(encrypt("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!"));
+        System.out.println(encrypt("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!", 15));
     }
     
      public void testCaesarTwoKey() {
