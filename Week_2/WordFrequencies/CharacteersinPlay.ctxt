@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=person
+comment0.target=void\ update(java.lang.String)
+comment0.text=\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\n\n\ @param\ \ y\ \ \ a\ sample\ parameter\ for\ a\ method\n\ @return\ \ \ \ \ the\ sum\ of\ x\ and\ y\n
+comment1.params=
+comment1.target=void\ findAllCharacters()
+comment1.text=\n\ Method\ find\ out\ all\ Character\ at\ the\ text\n\ \n
+comment2.params=num1\ num2
+comment2.target=void\ charactersWithNumParts(int,\ int)
+comment2.text=\n\ Method\ print\ out\ Character\ that\ apears\ in\ the\ text\n\ with\ between\ specific\ times\n\n\ @param\ num1\ \ \ min\ \ time\ apears(include)\n\ @param\ num2\ max\ time\ apears(include)\n
+comment3.params=
+comment3.target=void\ printCharacters()
+comment3.text=\n\ Method\ print\ all\ Person\ and\ it\ apears\ time\ in\ the\ text\n\n
+comment4.params=
+comment4.target=void\ tester()
+comment4.text=\n\ Test\ method\ for\ the\ class\n\ \n
+numComments=5
