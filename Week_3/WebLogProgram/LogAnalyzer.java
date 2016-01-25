@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Write a description of class LogAnalyzer here.
+ * Class read web-log file and return
+ * different info like unique IP
+ * max visits per day
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author oleksandr.bevzyuk
+ * @version 25.01.2016
  */
 
 public class LogAnalyzer
@@ -18,17 +20,25 @@ public class LogAnalyzer
          records = new ArrayList<>();
      }
 
+    /**
+     * Method read log file and
+     * @return count of Unique IPs
+     */
     public int countUniqueIPs() {
         ArrayList<String> uniqueIPs = new ArrayList<>();
         for (LogEntry le:  records) {
-           // String ip = records.get(i).getIpAddress();
-            if (!uniqueIPs.contains(le.getIpAddress())) {
+           if (!uniqueIPs.contains(le.getIpAddress())) {
                 uniqueIPs.add(le.getIpAddress());
             }
         }
         return uniqueIPs.size();
     }
 
+    /**
+     * Method printout LogEntry with
+     * reply code higher than num
+     * @param num - reply code
+     */
     public void printAllHigherThanNum(int num) {
         for (LogEntry le : records) {
             if (le.getStatusCode() > num) {
@@ -37,6 +47,12 @@ public class LogAnalyzer
         }
     }
 
+    /**
+     * Method return ArrayList of String
+     * with unique IPs per day
+     * @param day
+     * @return
+     */
     public ArrayList<String> uniqueIPVisitsOnDay(String day) {
         ArrayList<String> uniqueIPVisitorOnDay = new ArrayList<>();
         for (LogEntry le : records) {
@@ -49,6 +65,13 @@ public class LogAnalyzer
         return uniqueIPVisitorOnDay;
     }
 
+    /**Method calculate and return a
+     *  HashMap where key is IP-address
+     * and value - integer: how many time
+     * client with this IP-address visited
+     * web-site
+     * @return HashMap < IP, count visit time>
+     */
     public HashMap<String, Integer> countVisitsPerIP() {
         HashMap<String, Integer> counts = new HashMap<>();
         for (LogEntry le : records) {
@@ -61,6 +84,11 @@ public class LogAnalyzer
         return counts;
     }
 
+    /** Method count how may
+     * different IP visited site
+     * per day
+     * @return HashMap <day, diff<IP>
+     */
     public HashMap<String, ArrayList<String>> IPsForDays() {
         HashMap<String, ArrayList<String>> map = new HashMap<>();
         ArrayList<String> ip;
@@ -79,6 +107,15 @@ public class LogAnalyzer
         return map;
     }
 
+    /** Method find out
+     * the day with max visitors
+     *
+     * @param IPsForDays hashmap where key is Day
+     *                   and value is ArrayList<IP>
+     *                   which was visited on this day
+     *
+     * @return Sting Day
+     */
     public String dayWithMostIPVisits(HashMap<String, ArrayList<String>> IPsForDays) {
         int maxIdxOfIPvisits = 0;
         String maxDay="";
