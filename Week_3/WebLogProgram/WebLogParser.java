@@ -12,7 +12,7 @@ public class WebLogParser {
         sb.delete(0, x + delim.length());
         return ans;
     }
-    public static LogEntrySimple parseEntry(String line) {
+    public static LogEntry parseEntry(String line) {
         //Assumes line is vald and in this format:
         //110.76.104.12 - - [30/Sep/2015:07:47:11 -0400] "GET //favicon.ico HTTP/1.1" 200 3426
         StringBuilder sb = new StringBuilder(line);
@@ -26,7 +26,7 @@ public class WebLogParser {
         int status = Integer.parseInt(statusStr);
         String byteStr = munchTo(sb, " ");
         int bytes = Integer.parseInt(byteStr);
-        return new LogEntrySimple(ip, date, request, status, bytes);
+        return new LogEntry(ip, date, request, status, bytes);
     }
     public static Date parseDate(String dateStr) {
         ParsePosition pp = new ParsePosition(0);
