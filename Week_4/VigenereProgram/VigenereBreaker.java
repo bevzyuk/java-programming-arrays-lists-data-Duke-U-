@@ -6,6 +6,14 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class VigenereBreaker {
+    /**
+     * Method slice message from position whichSlice with step totalSlice.
+     * Return slice String
+     * @param message
+     * @param whichSlice
+     * @param totalSlices
+     * @return
+     */
     public String sliceString(String message, int whichSlice, int totalSlices) {
         StringBuilder sb = new StringBuilder();
         message = message.substring(whichSlice);
@@ -23,10 +31,13 @@ public class VigenereBreaker {
             CaesarCracker cc = new CaesarCracker(mostCommon);
             key[i] = cc.getKey(sliceString(encrypted, i, key.length));
         }
-        //printAllKeys(key);
         return key;
     }
 
+    /**
+     * Hook method for printing all keys
+     * @param key
+     */
     private void printAllKeys(int[] key) {
         System.out.print("PRINT KEYS:");
         for (int i : key) {
@@ -34,6 +45,11 @@ public class VigenereBreaker {
         }
     }
 
+    /**
+     * Method read word Dictionary from FileResource
+     * @param fr input FileResource
+     * @return dictionary as HashSet<String>
+     */
     public HashSet<String> readDictionary(FileResource fr) {
         HashSet<String> dicrionary = new HashSet<>();
         for (String word : fr.lines()) {
@@ -42,6 +58,11 @@ public class VigenereBreaker {
         return dicrionary;
     }
 
+    /**
+     * Method find most common char in dictionary
+     * @param dictionary input dictionary
+     * @return most common char in dictionary
+     */
     public char mostCommonCharIn(HashSet<String> dictionary) {
         char mostCommonChar='0';
         HashMap<Character, Integer> map = new HashMap<>();
@@ -65,12 +86,23 @@ public class VigenereBreaker {
         return mostCommonChar;
     }
 
+    /**
+     * Hook method for testing
+     * MostCommonCharIn method
+     */
     public void testMostCommonCharIn() {
         FileResource fr = new FileResource();
         HashSet<String> dict = readDictionary(fr);
         System.out.println("Most common char is "+ mostCommonCharIn(dict));
     }
 
+    /**
+     * Main method for breaking VigenereChipher
+     * for any languages
+     * @param encrypted input encrypted message
+     * @param languages HashMap of languages
+     * @return breaking string
+     */
     public String breakForAllLanguages(String encrypted, HashMap<String, HashSet<String>> languages) {
         String decrypted;
         int maxWord = 0;
@@ -91,6 +123,14 @@ public class VigenereBreaker {
         return decrypted;
     }
 
+    /**
+     * Method find out how many words from
+     * decrypted message is a real word
+     * from dictionary
+     * @param message input decrypted message
+     * @param dictionary input dictionary
+     * @return count of real words from message
+     */
     public int countWords(String message, HashSet<String> dictionary) {
         int count = 0;
         String[] words = message.split("\\W");
@@ -102,6 +142,13 @@ public class VigenereBreaker {
         return count;
     }
 
+    /**
+     * Method decrypt encrypted message for
+     * with dictionary
+     * @param encrypted input message
+     * @param dicrionary input dictionary
+     * @return decrypted message
+     */
     public String breakForLanguage(String encrypted, HashSet<String> dicrionary) {
         String dectypted = "";
         int key = 0;
@@ -116,9 +163,7 @@ public class VigenereBreaker {
             }
         }
         VigenereCipher vc = new VigenereCipher(tryKeyLength(encrypted, key, commonChar));
-      //  printAllKeys(tryKeyLength(encrypted,key, commonChar));
         System.out.println("Key length is: " + key);
-     //   System.out.println("\nWord in dictionary: "+ k);
         dectypted = vc.decrypt(encrypted);
         return dectypted;
     }
